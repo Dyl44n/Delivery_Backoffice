@@ -1,8 +1,8 @@
 import 'package:delivery_backoffice/src/core/env/ui/helpers/loader.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/env/env.dart';
 import '../../core/env/ui/helpers/messages.dart';
+import '../../core/env/ui/helpers/size_extensions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,7 +28,11 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
         },
       ),
       body: Container(
-        child: Text(Env.instance.get('backend_base_url')),
+        child: Container(
+          color: Colors.red,
+          width: context.percentwidth(.5),
+          height: context.percentHeigth(.90),
+        ),
       ),
     );
   }
