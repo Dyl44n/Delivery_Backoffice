@@ -1,10 +1,7 @@
 import 'package:delivery_backoffice/src/core/env/ui/helpers/loader.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/env/ui/Styles/colors_app.dart';
-import '../../core/env/ui/Styles/text_styles.dart';
 import '../../core/env/ui/helpers/messages.dart';
-import '../../core/env/ui/helpers/size_extensions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,17 +23,31 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
           await Future.delayed(const Duration(seconds: 2));
           hideLoader();
 
-          showError('Erro de alguma coisa');
+          showError('Erro de teste');
         },
       ),
       body: Container(
         child: Container(
-          color: context.colors.primary,
-          width: context.percentwidth(.5),
-          height: context.percentHeigth(.90),
-          child: Text(
-            'Texto extra bold',
-            style: context.textStyles.textExtraBold,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Form(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: TextFormField(
+                    decoration: InputDecoration(label: Text('Login')),
+                    validator: (String) => 'Erro',
+                  ),
+                ),
+              ),
+              SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Botão'),
+                  )),
+            ],
           ),
         ),
       ),
