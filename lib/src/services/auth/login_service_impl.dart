@@ -11,13 +11,13 @@ class LoginServiceImpl implements LoginService {
 
   @override
   Future<void> execute(String email, String password) async {
-    final AuthModel = await _authRepository.login(
+    final authModel = await _authRepository.login(
       email,
       password,
     );
     _storage.setData(
       SessionStorageKeys.accessToken.key,
-      AuthModel.accessToken,
+      authModel.accesstoken,
     );
   }
 }

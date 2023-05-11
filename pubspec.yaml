@@ -38,6 +38,7 @@ dependencies:
   flutter_modular: ^5.0.3
   mobx: ^2.2.0
   dio: ^5.1.2
+  validatorless: ^1.2.3
 
 dev_dependencies:
   flutter_test:
