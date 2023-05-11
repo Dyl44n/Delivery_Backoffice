@@ -53,7 +53,15 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
   void dispose() {
     emailEC.dispose();
     passwordEC.dispose();
+    statusReactionDisposer();
     super.dispose();
+  }
+
+  void _formSubmit() {
+    final formValid = formKey.currentState?.validate() ?? false;
+    if (formValid) {
+      controller.login(emailEC.text, passwordEC.text);
+    }
   }
 
   @override
@@ -123,6 +131,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         ),
                         TextFormField(
                           controller: emailEC,
+                          onFieldSubmitted: (_) => _formSubmit(),
                           decoration:
                               const InputDecoration(labelText: 'E-mail'),
                           validator: Validatorless.multiple([
@@ -136,6 +145,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         TextFormField(
                           controller: passwordEC,
                           obscureText: true,
+                          onFieldSubmitted: (_) => _formSubmit(),
                           decoration: const InputDecoration(labelText: 'Senha'),
                           validator:
                               Validatorless.required('Password Obrigatorio!!'),
@@ -147,13 +157,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                           width: double.infinity,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {
-                              final formValid =
-                                  formKey.currentState?.validate() ?? false;
-                              if (formValid) {
-                                controller.login(emailEC.text, passwordEC.text);
-                              }
-                            },
+                            onPressed: _formSubmit,
                             child: const Text('Entrar'),
                           ),
                         ),

@@ -19,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
       final result = await _dio.unauth().post(
         '/auth',
         data: {
-          'email:': email,
+          'email': email,
           'password': password,
           'admin': true,
         },
