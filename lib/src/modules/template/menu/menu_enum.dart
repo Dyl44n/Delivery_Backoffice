@@ -1,12 +1,12 @@
 enum Menu {
   paymentType(
-    'payment-type',
+    '/payment-type',
     'payment_type_ico.png',
     'payment_type_ico_selected.png',
     'Administrar Formas de Pagamento',
   ),
   products(
-    'products',
+    '/products',
     'product_ico.png',
     'product_ico_selected.png',
     'Administrar Produtos',

@@ -23,7 +23,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
   final acronymEC = TextEditingController();
   var enabled = false;
 
-  void _closeModal() => Navigator.of(context).pop;
+  void _closeModal() => Navigator.of(context).pop();
 
   @override
   void initState() {
@@ -68,7 +68,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: InkWell(
-                      onTap: () => _closeModal,
+                      onTap: _closeModal,
                       child: const Icon(Icons.close),
                     ),
                   )
@@ -133,7 +133,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
                             .copyWith(color: Colors.red),
                       ),
                     ),
-                  ),
+                  ), //
                   Container(
                     height: 60,
                     padding: EdgeInsets.all(8),
